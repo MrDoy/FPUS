@@ -44,17 +44,13 @@ class Short(webapp.RequestHandler):
 	except:
 		self.response.out.write('Please provide parameters : url and password if needed')
 	else:
-		deny = False
 		try:
 			# [A-Za-z0-9\.\-\_\/\+]
 			if not re.search("^https?:\/\/[A-Za-z0-9\.\-\_\/\+]+$",params['url'][0]):
-				deny = True
 				raise ValueError("Please fill something good")
-				
 			if(password != ''):
 				try:
-					if params['pswd']!=password:
-						deny = True
+					if params['pwd']!=password:
 						self.response.out.write('Wrong password')
 				except NameError:
 					self.response.out.write('Please provide password')
@@ -71,7 +67,7 @@ class Short(webapp.RequestHandler):
 			if existingurl.count()>0:
 				shortid = existingurl[0].shortid
 			else:
-				shortedurl = Shorturl()
+				shortedurl = shorturl.Shorturl()
 				shortedurl.shortid = shortid
 				shortedurl.url = params['url'][0]
 				shortedurl.ip = self.request.remote_addr
