@@ -72,7 +72,7 @@ class Short(webapp.RequestHandler):
 				shortedurl.url = params['url'][0]
 				shortedurl.ip = self.request.remote_addr
 				shortedurl.put()
-			self.response.out.write(self.request.headers['host']+'/'+shortid)
+			self.response.out.write('http://'+self.request.headers['host']+'/'+shortid)
 	
 application = webapp.WSGIApplication([('/short', Short)],debug=True)
 
