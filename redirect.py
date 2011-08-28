@@ -9,7 +9,7 @@ import shorturl
 class Redirector(webapp.RequestHandler):
     def get(self,path):
 	if path=='':
-		self.response.headers['Content-Type'] = 'text/plain'
+		self.response.headers['Content-Type'] = 'text/html'
 		self.response.out.write('This is a <a href="http://www.mygb.eu">mygb</a>\'s url shortener running on Google App Engine - <a href="https://github.com/MrDoy/FPUS">Fast Python Url Shortener</a>')
         elif re.search('[A-Za-z0-9\-_]{4,10}',path):
 		existingshortid = db.GqlQuery("SELECT * FROM Shorturl WHERE shortid= :1 LIMIT 0,1",path)

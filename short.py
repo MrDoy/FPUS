@@ -51,7 +51,7 @@ class Short(webapp.RequestHandler):
 			if(password != ''):
 				try:
 					if params['pwd']!=password:
-						self.response.out.write('Wrong password')
+						raise ValueError("Wrong password")
 				except NameError:
 					self.response.out.write('Please provide password')
 		except:
