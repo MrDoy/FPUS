@@ -12,3 +12,6 @@ To shorten an url use format
 	http://yoururl/short?
 		url=shortenurl
 		[&pwd=password]
+
+		
+There's a demo here : http://fastpythonus.appspot.com/
