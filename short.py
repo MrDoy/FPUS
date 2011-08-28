@@ -4,7 +4,7 @@ from google.appengine.ext import db
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 import random
-import urlparse
+import cgi
 import re
 import shorturl
 password = ''
@@ -38,7 +38,7 @@ class Short(webapp.RequestHandler):
         self.response.headers['Content-Type'] = 'text/plain'
 		
 	try:
-		params = urlparse.parse_qs(self.request.query_string)
+		params = cgi.parse_qs(self.request.query_string)
 		if not params:
 			raise ValueError("Please fill something")
 	except:
