@@ -1,0 +1,10 @@
+application: fpus
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /short*
+  script: short.py
+- url: /.*
+  script: redirect.py
