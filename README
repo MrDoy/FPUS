@@ -1,0 +1,10 @@
+*Fast Python Url Shortener (FPUS)*
+
+It’s a very simple URL shortener to run on Google App Engine.
+First, set up an App Engine account. It’s better if you use a custom domain name.
+Set or not a password in short.py to protect shortening
+Push all the files onto the server.
+To shorten an url use format 
+	http://yoururl/short?
+		url=shortenurl
+		[&pwd=password]
